@@ -1,11 +1,12 @@
 import java.util.UUID;
+// import java.util.Date;
 
-public class payment {
+public class Payment {
     private String paymentId;
     private String SubscriptionId;
-    private Date dueDate;
+    // private Date dueDate;
     private String paymentType;
-    private enum {
-        "Paid", "Unpaid", "Overdue"
+    private enum Status {
+        Paid, Unpaid, Overdue
     };
 }
