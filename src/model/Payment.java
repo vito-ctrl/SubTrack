@@ -1,12 +1,36 @@
+package model;
+
 import java.util.UUID;
 // import java.util.Date;
 
 public class Payment {
     private String paymentId;
-    private String SubscriptionId;
-    // private Date dueDate;
+    private String subscriptionId;
+    private LocalDate dueDate;
     private String paymentType;
     private enum Status {
         Paid, Unpaid, Overdue
     };
+
+    public String getPaymentId() {return paymentId;}
+
+    public String getSubscriptionId() {return subscriptionId;}
+
+    public LocalDate getDueDate() {return dueDate;}
+
+    public String getPaymentType() {return paymentType;}
+
+    public Status getStatus() {return status;}
+
+    public LocalDate getPaymentDate() {return paymentDate;}
+
+    public void setSubscriptionId(String subscriptionId) {this.subscriptionId = subscriptionId;}
+
+    public void setDueDate(LocalDate dueDate) {this.dueDate = dueDate;}
+
+    public void setPaymentDate(LocalDate paymentDate) {this.paymentDate = paymentDate;}
+
+    public void setPaymentType(String paymentType) {this.paymentType = paymentType;}
+
+    public void setStatus(Status status) {this.status = status;}
 }

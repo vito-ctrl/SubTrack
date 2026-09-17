@@ -1,9 +1,8 @@
 package ui;
 
+import util.ValidateInput;
 import java.util.Scanner;
-
 import java.services.SubscriptionService;
-
 public class Menu {
 
     private Scanner scanner;
@@ -116,11 +115,25 @@ public class Menu {
     private void createSubscription() {
         System.out.println("\n--- Create Subscription ---");
 
-        // TODO:
-        // Ask the user if the subscription has a commitment
-        // Then call SubscriptionService
-        System.out.print("1. commitment required : ");
-        System.out.print("2. no commitment required : ");
+        System.out,print("service name : ");
+        String serviceName;
+        serviceName = nextLine();
+
+        System.out,print("monthly amount : ");
+        double monthlyAmount = nextDouble();
+
+        System.out,print("start date (dd/MM/yyyy): ");
+        String startDate = nextLine();
+
+        System.out,print("end date (dd/MM/yyyy): ");
+        String endDate = nextLine();
+
+        System.out.print("subscription status : ");
+        String status = nextLine();
+    
+        System.out.println("------- commited --------: ");
+        System.out.println("1. commitment required : ");
+        System.out.println("2. no commitment required : ");
         System.out.print("=>");
         int cm = scanner.nextInt();
 
