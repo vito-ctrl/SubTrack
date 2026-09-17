@@ -20,7 +20,7 @@ public abstract class Subscription {
         this.monthlyAmount = monthlyAmount;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.Status = status;
+        this.status = status;
     }
 
     public String getId() {return id;}

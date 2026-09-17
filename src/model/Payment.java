@@ -1,16 +1,27 @@
 package model;
 
 import java.util.UUID;
-// import java.util.Date;
+import java.time.LocalDate;
 
 public class Payment {
     private String paymentId;
     private String subscriptionId;
     private LocalDate dueDate;
+    private LocalDate paymentDate;
     private String paymentType;
+    
     private enum Status {
         Paid, Unpaid, Overdue
     };
+    private Status status;
+
+    public Payment(String subscriptionId, LocalDate dueDate, LocalDate paymentDate, String paymentType){
+        this.paymentId = UUID.randomUUID().toString();
+        this.subscriptionId = subscriptionId;
+        this.dueDate = dueDate;
+        this.paymentDate = paymentDate;
+        this.paymentType = paymentType;
+    }
 
     public String getPaymentId() {return paymentId;}
 
