@@ -6,15 +6,15 @@ import java.time.LocalDate;
 public abstract class Subscription {
     private String id;
     private String serviceName;
-    private Double monthlyAmount;
+    private double monthlyAmount;
     private String startDate;
     private String endDate;
-    private enum Status {
+    public enum Status {
         Active, Suspended, Terminated 
     };
     private Status status;
 
-    public Subscription(String serviceName, Double monthlyAmount,String startDate, String endDate, Status status){
+    public Subscription(String serviceName, double monthlyAmount,String startDate, String endDate, Status status){
         this.id = UUID.randomUUID().toString();
         this.serviceName = serviceName;
         this.monthlyAmount = monthlyAmount;

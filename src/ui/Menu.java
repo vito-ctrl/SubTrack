@@ -1,8 +1,13 @@
 package ui;
 
-import util.ValidateInput;
 import java.util.Scanner;
-import java.services.SubscriptionService;
+// import java.services.SubscriptionService;
+// import util.ValidateInput;
+
+import model.Subscription;
+import model.SubscriptionWithCommitment; 
+import model.SubscriptionWithoutCommitment; 
+
 public class Menu {
 
     private Scanner scanner;
@@ -115,29 +120,39 @@ public class Menu {
     private void createSubscription() {
         System.out.println("\n--- Create Subscription ---");
 
-        System.out,print("service name : ");
         String serviceName;
-        serviceName = nextLine();
+        System.out.print("service name : ");
+        serviceName = scanner.nextLine();
 
-        System.out,print("monthly amount : ");
-        double monthlyAmount = nextDouble();
+        System.out.print("monthly amount : ");
+        double monthlyAmount = scanner.nextDouble();
 
-        System.out,print("start date (dd/MM/yyyy): ");
-        String startDate = nextLine();
+        scanner.nextLine();
+        System.out.print("start date (dd/MM/yyyy): ");
+        String startDate = scanner.nextLine();
 
-        System.out,print("end date (dd/MM/yyyy): ");
-        String endDate = nextLine();
+        System.out.print("end date (dd/MM/yyyy): ");
+        String endDate = scanner.nextLine();
 
-        System.out.print("subscription status : ");
-        String status = nextLine();
+        System.out.print("subscription status (Active, Suspended, Terminated): ");
+        
+        Subscription.Status status = Subscription.Status.valueOf(scanner.nextLine());
+    
+        System.out.print("commitment Duration Months : ");
+        int commitmentDurationMonths = scanner.nextInt();
     
         System.out.println("------- commited --------: ");
         System.out.println("1. commitment required : ");
         System.out.println("2. no commitment required : ");
         System.out.print("=>");
         int cm = scanner.nextInt();
-
-        SubscriptionService.createSubscription();
+        if(cm == 1){
+            SubscriptionWithCommitment s = new SubscriptionWithCommitment(serviceName, monthlyAmount, startDate, endDate, status, commitmentDurationMonths);
+            System.out.println("id : " + s.getId() + " service name : " + s.getServiceName() + " commitment durantion : " + s.getCommitmentDurationMonths());
+        }else if(cm == 2){
+            SubscriptionWithoutCommitment s = new SubscriptionWithoutCommitment(serviceName, monthlyAmount, startDate, endDate, status);
+            System.out.println("id : " + s.getId() + " service name : " + s.getServiceName()    );
+        }
     }
 
 
