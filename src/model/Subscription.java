@@ -7,14 +7,14 @@ public abstract class Subscription {
     private String id;
     private String serviceName;
     private double monthlyAmount;
-    private String startDate;
-    private String endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     public enum Status {
         Active, Suspended, Terminated 
     };
     private Status status;
 
-    public Subscription(String serviceName, double monthlyAmount,String startDate, String endDate, Status status){
+    public Subscription(String serviceName, double monthlyAmount,LocalDate startDate, LocalDate endDate, Status status){
         this.id = UUID.randomUUID().toString();
         this.serviceName = serviceName;
         this.monthlyAmount = monthlyAmount;
@@ -29,9 +29,9 @@ public abstract class Subscription {
 
     public Double getMonthlyAmount() {return monthlyAmount;}
 
-    public String getStartDate() {return startDate;}
+    public LocalDate getStartDate() {return startDate;}
 
-    public String getEndDate() {return endDate;}
+    public LocalDate getEndDate() {return endDate;}
     
     public Status getStatus() {return status;}
     
@@ -39,9 +39,9 @@ public abstract class Subscription {
 
     public void setMonthlyAmount(Double monthlyAmount) {this.monthlyAmount = monthlyAmount;}
 
-    public void setStartDate(String startDate) {this.startDate = startDate;}
+    public void setStartDate(LocalDate startDate) {this.startDate = startDate;}
 
-    public void setEndDate(String endDate) {this.endDate = endDate;}
+    public void setEndDate(LocalDate endDate) {this.endDate = endDate;}
 
     public void setStatus(Status status) {this.status = status;}
 }

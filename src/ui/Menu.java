@@ -1,8 +1,7 @@
 package ui;
 
 import java.util.Scanner;
-// import java.services.SubscriptionService;
-// import util.ValidateInput;
+import java.time.format.DateTimeFormatter;
 
 import model.Subscription;
 import model.SubscriptionWithCommitment; 
@@ -129,10 +128,10 @@ public class Menu {
 
         scanner.nextLine();
         System.out.print("start date (dd/MM/yyyy): ");
-        String startDate = scanner.nextLine();
+        LocalDate startDate = LocalDate.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
         System.out.print("end date (dd/MM/yyyy): ");
-        String endDate = scanner.nextLine();
+        LocalDate endDate = LocalDate.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
         System.out.print("subscription status (Active, Suspended, Terminated): ");
         
