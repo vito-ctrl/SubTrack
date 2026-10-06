@@ -5,7 +5,7 @@ A simple command-line to-do list application written in **Java**. Tasks are save
 This project was built as part of my journey **learning Java**: object-oriented design, packages, file I/O and user input handling.
 
 ![Java](https://img.shields.io/badge/Java-21-orange)
-![Status](https://img.shields.io/badge/status-in%20progress-yellow)
+![Status](https://img.shields.io/badge/status-done-green)
 ![Type](https://img.shields.io/badge/type-CLI-lightgrey)
 
 ---
